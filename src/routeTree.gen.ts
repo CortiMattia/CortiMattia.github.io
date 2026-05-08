@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeachingRouteImport } from './routes/teaching'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PublicationsRouteImport } from './routes/publications'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TeachingRoute = TeachingRouteImport.update({
+  id: '/teaching',
+  path: '/teaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
+  '/teaching': typeof TeachingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
+  '/teaching': typeof TeachingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
+  '/teaching': typeof TeachingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/publications' | '/research'
+  fullPaths: '/' | '/publications' | '/research' | '/teaching'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/publications' | '/research'
-  id: '__root__' | '/' | '/publications' | '/research'
+  to: '/' | '/publications' | '/research' | '/teaching'
+  id: '__root__' | '/' | '/publications' | '/research' | '/teaching'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PublicationsRoute: typeof PublicationsRoute
   ResearchRoute: typeof ResearchRoute
+  TeachingRoute: typeof TeachingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/teaching': {
+      id: '/teaching'
+      path: '/teaching'
+      fullPath: '/teaching'
+      preLoaderRoute: typeof TeachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/research': {
       id: '/research'
       path: '/research'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PublicationsRoute: PublicationsRoute,
   ResearchRoute: ResearchRoute,
+  TeachingRoute: TeachingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
