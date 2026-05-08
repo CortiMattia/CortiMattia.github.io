@@ -136,33 +136,78 @@
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
+  * { border-color: var(--color-border); }
 
-  html {
-    font-family: var(--font-sans);
-  }
+  html { font-family: var(--font-sans); scroll-behavior: smooth; }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.78 0.16 75 / 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.7 0.18 320 / 0.10), transparent);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    font-weight: 400;
   }
+
+  ::selection { background: oklch(0.78 0.16 75 / 0.3); color: var(--color-foreground); }
 }
 
-.prose-academic p { line-height: 1.75; }
-.link-underline {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  transition: background-size 0.3s ease;
+.font-mono { font-family: var(--font-mono); }
+
+.gradient-text {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.link-underline:hover { background-size: 100% 1px; }
+
+.glass {
+  background: oklch(1 0 0 / 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1 0 0 / 0.08);
+}
+
+.hover-card-modern {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-card-modern:hover {
+  transform: translateY(-2px);
+  border-color: oklch(0.78 0.16 75 / 0.4);
+  background: oklch(1 0 0 / 0.05);
+}
+
+.dotted-grid {
+  background-image: radial-gradient(oklch(1 0 0 / 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.link-underline {
+  position: relative;
+  transition: color 0.2s;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-float-up { animation: float-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
