@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeachingRouteImport } from './routes/teaching'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PublicationsRouteImport } from './routes/publications'
+import { Route as CvRouteImport } from './routes/cv'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TeachingRoute = TeachingRouteImport.update({
@@ -29,6 +30,11 @@ const PublicationsRoute = PublicationsRouteImport.update({
   path: '/publications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CvRoute = CvRouteImport.update({
+  id: '/cv',
+  path: '/cv',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cv': typeof CvRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cv': typeof CvRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cv': typeof CvRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/publications' | '/research' | '/teaching'
+  fullPaths: '/' | '/cv' | '/publications' | '/research' | '/teaching'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/publications' | '/research' | '/teaching'
-  id: '__root__' | '/' | '/publications' | '/research' | '/teaching'
+  to: '/' | '/cv' | '/publications' | '/research' | '/teaching'
+  id: '__root__' | '/' | '/cv' | '/publications' | '/research' | '/teaching'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CvRoute: typeof CvRoute
   PublicationsRoute: typeof PublicationsRoute
   ResearchRoute: typeof ResearchRoute
   TeachingRoute: typeof TeachingRoute
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cv': {
+      id: '/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CvRoute: CvRoute,
   PublicationsRoute: PublicationsRoute,
   ResearchRoute: ResearchRoute,
   TeachingRoute: TeachingRoute,
