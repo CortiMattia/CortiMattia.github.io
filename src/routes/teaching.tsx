@@ -23,19 +23,22 @@ function TeachingPage() {
       <PageHeader
         eyebrow="Teaching"
         title="Courses & supervision"
-        lead="Selected teaching activities at Politecnico di Milano. I am happy to discuss thesis projects in numerical analysis and scientific computing."
+        lead="Selected teaching activities. I'm happy to discuss thesis projects in numerical analysis and scientific computing."
       />
-      <ul className="divide-y divide-border">
+      <div className="space-y-3">
         {items.map((it) => (
-          <li key={it.course} className="py-6 grid sm:grid-cols-[12rem_1fr] gap-2 sm:gap-6">
-            <span className="text-sm text-muted-foreground font-mono">{it.period}</span>
+          <article
+            key={it.course}
+            className="hover-card-modern rounded-2xl border border-border p-6 grid sm:grid-cols-[14rem_1fr] gap-4"
+          >
+            <span className="font-mono text-sm text-muted-foreground">{it.period}</span>
             <div>
-              <p className="font-serif text-lg font-medium">{it.course}</p>
-              <p className="text-sm text-muted-foreground mt-1">{it.role} — {it.where}</p>
+              <p className="font-serif text-2xl leading-snug">{it.course}</p>
+              <p className="text-sm text-muted-foreground mt-2">{it.role} · {it.where}</p>
             </div>
-          </li>
+          </article>
         ))}
-      </ul>
+      </div>
     </SiteLayout>
   );
 }

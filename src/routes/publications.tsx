@@ -36,7 +36,7 @@ const publications: Pub[] = [
   },
   {
     year: "2024",
-    title: "Exploring tau protein and amyloid-beta propagation: a sensitivity analysis of mathematical models based on biological data",
+    title: "Exploring tau protein and amyloid-beta propagation: a sensitivity analysis based on biological data",
     authors: "M. Corti",
     venue: "Preprint, arXiv:2404.14169",
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2404.14169" }],
@@ -67,27 +67,41 @@ function PublicationsPage() {
       <PageHeader
         eyebrow="Publications"
         title="Selected works"
-        lead="A selection of journal articles and preprints. A complete and up-to-date list is on Google Scholar and ORCID."
+        lead="A curated list of journal articles and preprints. The complete list is on Google Scholar."
       />
-      <div className="space-y-12">
+
+      <div className="space-y-16">
         {years.map((year) => (
           <section key={year}>
-            <h2 className="font-serif text-3xl font-semibold mb-6 text-muted-foreground">{year}</h2>
-            <ul className="space-y-8">
+            <div className="flex items-baseline gap-4 mb-6">
+              <h2 className="font-serif text-6xl gradient-text">{year}</h2>
+              <span className="font-mono text-xs text-muted-foreground">
+                {grouped[year].length} {grouped[year].length === 1 ? "entry" : "entries"}
+              </span>
+            </div>
+            <ul className="space-y-3">
               {grouped[year].map((p) => (
-                <li key={p.title}>
-                  <h3 className="font-serif text-lg font-medium leading-snug">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{p.authors}</p>
-                  <p className="text-sm italic text-foreground/80 mt-1">{p.venue}</p>
-                  {p.links && (
-                    <p className="mt-2 flex gap-4 text-sm">
-                      {p.links.map((l) => (
-                        <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="link-underline text-primary">
-                          {l.label} ↗
-                        </a>
-                      ))}
-                    </p>
-                  )}
+                <li key={p.title} className="hover-card-modern rounded-2xl border border-border p-6">
+                  <h3 className="font-serif text-2xl leading-snug">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-2">{p.authors}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
+                    <span className="italic text-foreground/80">{p.venue}</span>
+                    {p.links && (
+                      <span className="flex gap-2">
+                        {p.links.map((l) => (
+                          <a
+                            key={l.href}
+                            href={l.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1 rounded-full border border-primary/40 text-primary px-3 py-1 text-xs font-medium hover:bg-primary/10 transition"
+                          >
+                            {l.label} ↗
+                          </a>
+                        ))}
+                      </span>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
