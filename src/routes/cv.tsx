@@ -15,7 +15,7 @@ const sections: { heading: string; entries: { period: string; title: string; pla
   {
     heading: "Appointments",
     entries: [
-      { period: "2024 — present", title: "Postdoctoral Researcher (art. 22-ter)", place: "MOX, Politecnico di Milano" },
+      { period: "2024 — now", title: "Postdoctoral Researcher (art. 22-ter)", place: "MOX, Politecnico di Milano" },
       { period: "2024", title: "Visiting Researcher", place: "Mathematical Institute, University of Oxford" },
       { period: "2023 — 2024", title: "Visiting Researcher", place: "Faculty of Mathematics, University of Vienna" },
     ],
@@ -31,8 +31,8 @@ const sections: { heading: string; entries: { period: string; title: string; pla
   {
     heading: "Grants & affiliations",
     entries: [
-      { period: "2024 —", title: "ERC Synergy Grant — NEMESIS", place: "Project member" },
-      { period: "2023 —", title: "INdAM-GNCS member", place: "Italian National Group for Scientific Computing" },
+      { period: "2024 — now", title: "ERC Synergy Grant — NEMESIS", place: "Project member" },
+      { period: "2023 — now", title: "INdAM-GNCS member", place: "Italian National Group for Scientific Computing" },
     ],
   },
 ];
@@ -42,25 +42,31 @@ function CVPage() {
     <SiteLayout>
       <PageHeader
         eyebrow="Curriculum vitae"
-        title="CV"
-        lead="A short academic CV. A full PDF version is available on request."
+        title="A short CV"
+        lead="Highlights of my academic trajectory. The full PDF is available on request."
       />
-      <div className="space-y-14">
-        {sections.map((s) => (
+      <div className="space-y-20">
+        {sections.map((s, sIdx) => (
           <section key={s.heading}>
-            <h2 className="font-serif text-2xl font-semibold mb-6">{s.heading}</h2>
-            <ul className="divide-y divide-border">
+            <div className="flex items-baseline gap-4 mb-8">
+              <span className="font-mono text-xs text-muted-foreground">0{sIdx + 1}</span>
+              <h2 className="font-serif text-4xl">{s.heading}</h2>
+            </div>
+            <div className="space-y-3">
               {s.entries.map((e) => (
-                <li key={e.title + e.period} className="py-5 grid sm:grid-cols-[10rem_1fr] gap-2 sm:gap-6">
-                  <span className="text-sm font-mono text-muted-foreground">{e.period}</span>
+                <div
+                  key={e.title + e.period}
+                  className="hover-card-modern rounded-2xl border border-border p-6 grid sm:grid-cols-[12rem_1fr] gap-4"
+                >
+                  <span className="font-mono text-sm text-muted-foreground">{e.period}</span>
                   <div>
-                    <p className="font-medium">{e.title}</p>
-                    <p className="text-sm text-muted-foreground">{e.place}</p>
+                    <p className="font-serif text-xl leading-snug">{e.title}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{e.place}</p>
                     {e.note && <p className="text-sm text-muted-foreground italic mt-1">{e.note}</p>}
                   </div>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </section>
         ))}
       </div>
