@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import mattiaPhoto from "@/assets/mattia-photo.png.asset.json";
 import brainArt from "@/assets/brain.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -31,17 +30,18 @@ function Index() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative overflow-hidden rounded-3xl hero-navy border border-white/10">
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-card">
         <img
-          src={brainArt.url}
+          src="/images/SfondoSito.png"
           alt=""
           aria-hidden
-          className="pointer-events-none select-none absolute -right-72 -top-6 w-[32rem] max-w-none opacity-90 hidden md:block"
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-25"
         />
         <div className="relative grid md:grid-cols-[auto_1fr] gap-10 items-center p-10 md:p-16">
           <img
             src="/images/mattia-photo.png"
             alt="Mattia Corti"
+            className="size-48 md:size-64 rounded-full object-cover shadow-2xl mx-auto md:mx-0"
           />
           <div>
             <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-white">
@@ -51,14 +51,23 @@ function Index() {
               Postdoctoral Researcher
             </p>
             <p className="mt-6 text-lg text-white/70 max-w-xl leading-relaxed">
-              MOX, Politecnico di Milano — numerical methods and mathematical models
-              to understand neurodegenerative diseases.
+              MOX, Department of Mathematics, Politecnico di Milano
             </p>
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.25em] text-white/50">
-              <span className="inline-flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-                AVAILABLE FOR COLLABORATIONS · 2026
-              </span>
+            <div className="mt-6 flex flex-col items-start gap-3 font-mono text-xs uppercase tracking-[0.25em] text-white/50">
+<span className="inline-flex items-center gap-2">
+  <span className="size-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+  Structure-preserving numerical methods for PDEs
+</span>
+<span className="inline-flex items-center gap-2">
+  <span className="size-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+  High-order polygonal and polyhedral methods
+</span>
+<span className="inline-flex items-center gap-2">
+  <span className="size-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+  Numerical methods and mathematical models for the brain
+</span>
+</div>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -82,7 +91,8 @@ function Index() {
             { k: "Postdoc at", v: "MOX · Polimi" },
             { k: "Field", v: "Numerical analysis" },
             { k: "Focus", v: "Neurodegeneration" },
-            { k: "Visiting", v: "Oxford · Vienna" },
+            { k: "Visiting", v: "Stanford" },
+            { k: "Previous position", v: "Vienna" },
           ].map((m) => (
             <p key={m.k} className="text-xs font-mono uppercase tracking-wider text-white/50">
               {m.k} <span className="text-white/90 normal-case tracking-normal font-sans font-medium">{m.v}</span>
