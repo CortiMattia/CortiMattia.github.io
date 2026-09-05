@@ -2,6 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { InterestCards } from "@/components/InterestCards";
 
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Mattia Corti — Postdoctoral Researcher" },
+      { name: "description", content: "Numerical methods and mathematical models for the brain at MOX, Politecnico di Milano." },
+    ],
+  }),
+  component: Index,
+});
+
 const news = [
   { date: "2026", tag: "Preprint", text: "Whole-brain model of amyloid-β accumulation and cerebral hypoperfusion in Alzheimer's disease." },
   { date: "2024", tag: "Published", text: "Structure-preserving polytopal DG methods — Journal of Scientific Computing." },
