@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
+import mattiaPhoto from "@/assets/mattia-photo.png.asset.json";
+import brainArt from "@/assets/brain.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,55 +31,64 @@ function Index() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative">
-        <div className="grid lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-8">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
+      <section className="relative overflow-hidden rounded-3xl hero-navy border border-white/10">
+        <img
+          src={brainArt.url}
+          alt=""
+          aria-hidden
+          className="pointer-events-none select-none absolute -right-72 -top-6 w-[32rem] max-w-none opacity-90 hidden md:block"
+        />
+        <div className="relative grid md:grid-cols-[auto_1fr] gap-10 items-center p-10 md:p-16">
+          <img
+            src={mattiaPhoto.url}
+            alt="Mattia Corti"
+            className="size-48 md:size-64 rounded-full object-cover ring-4 ring-white/10 shadow-2xl mx-auto md:mx-0"
+          />
+          <div>
+            <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-white">
+              Mattia Corti
+            </h1>
+            <p className="mt-4 font-mono text-sm md:text-base uppercase tracking-[0.25em] text-white/70">
+              Postdoctoral Researcher
+            </p>
+            <p className="mt-6 text-lg text-white/70 max-w-xl leading-relaxed">
+              MOX, Politecnico di Milano — numerical methods and mathematical models
+              to understand neurodegenerative diseases.
+            </p>
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.25em] text-white/50">
               <span className="inline-flex items-center gap-2">
                 <span className="size-1.5 rounded-full bg-primary animate-pulse" />
                 AVAILABLE FOR COLLABORATIONS · 2026
               </span>
             </p>
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.95] tracking-tight">
-              Mattia Corti<br />
-              <span className="gradient-text italic">of the brain.</span>
-            </h1>
-            <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              I'm <span className="text-foreground">Mattia Corti</span> — a postdoctoral researcher
-              at MOX, Politecnico di Milano. I build numerical methods and mathematical models
-              to understand neurodegenerative diseases.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/research"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:opacity-90 transition"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-[rgb(17_16_50)] px-6 py-3 text-sm font-medium hover:opacity-90 transition"
               >
                 Explore research
                 <span aria-hidden>→</span>
               </Link>
               <Link
                 to="/publications"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium hover:bg-white/5 transition"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 text-white px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
               >
                 See publications
               </Link>
             </div>
           </div>
-
-          <div className="lg:col-span-4 space-y-3">
-            {[
-              { k: "Postdoc at", v: "MOX · Polimi" },
-              { k: "Field", v: "Numerical analysis" },
-              { k: "Focus", v: "Neurodegeneration" },
-              { k: "Visiting", v: "Oxford · Vienna" },
-            ].map((m) => (
-              <div key={m.k} className="glass rounded-2xl p-4 flex items-baseline justify-between">
-                <span className="text-xs uppercase tracking-wider text-muted-foreground font-mono">{m.k}</span>
-                <span className="font-medium">{m.v}</span>
-              </div>
-            ))}
-          </div>
+        </div>
+        <div className="relative border-t border-white/10 px-10 md:px-16 py-4 flex flex-wrap gap-x-10 gap-y-2">
+          {[
+            { k: "Postdoc at", v: "MOX · Polimi" },
+            { k: "Field", v: "Numerical analysis" },
+            { k: "Focus", v: "Neurodegeneration" },
+            { k: "Visiting", v: "Oxford · Vienna" },
+          ].map((m) => (
+            <p key={m.k} className="text-xs font-mono uppercase tracking-wider text-white/50">
+              {m.k} <span className="text-white/90 normal-case tracking-normal font-sans font-medium">{m.v}</span>
+            </p>
+          ))}
         </div>
       </section>
 
