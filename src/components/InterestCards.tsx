@@ -117,6 +117,3 @@ export function InterestCards() {
     </div>
   );
 }
-
-// Dialog needs the trigger re-export for convenience
-import { DialogTrigger } from "@/components/ui/dialog";
