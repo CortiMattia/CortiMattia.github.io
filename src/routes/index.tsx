@@ -40,9 +40,8 @@ function Index() {
         />
         <div className="relative grid md:grid-cols-[auto_1fr] gap-10 items-center p-10 md:p-16">
           <img
-            src={mattiaPhoto.url}
+            src="/images/mattia-photo.png"
             alt="Mattia Corti"
-            className="size-48 md:size-64 rounded-full object-cover ring-4 ring-white/10 shadow-2xl mx-auto md:mx-0"
           />
           <div>
             <h1 className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-white">
