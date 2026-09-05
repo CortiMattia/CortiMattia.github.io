@@ -95,15 +95,7 @@ function Index() {
             See all research →
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {interests.map((i) => (
-            <article key={i.num} className="hover-card-modern rounded-2xl border border-border p-6 h-full">
-              <span className="font-mono text-xs text-muted-foreground">{i.num}</span>
-              <h3 className="font-serif text-2xl mt-4">{i.title}</h3>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{i.desc}</p>
-            </article>
-          ))}
-        </div>
+        <InterestCards />
       </section>
 
       {/* NEWS */}
