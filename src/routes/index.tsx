@@ -1,23 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import brainArt from "@/assets/brain.png.asset.json";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Mattia Corti — Postdoctoral Researcher" },
-      { name: "description", content: "Numerical methods and mathematical models for the brain at MOX, Politecnico di Milano." },
-    ],
-  }),
-  component: Index,
-});
-
-const interests = [
-  { num: "01", title: "Brain modeling", desc: "Whole-brain PDE models for neurodegenerative diseases." },
-  { num: "02", title: "Polytopal DG", desc: "Structure-preserving discontinuous Galerkin schemes." },
-  { num: "03", title: "HPC", desc: "Scalable solvers on patient-specific geometries." },
-  { num: "04", title: "Cardiac CFD", desc: "Hemodynamics of the left atrium and atrial fibrillation." },
-];
+import { InterestCards } from "@/components/InterestCards";
 
 const news = [
   { date: "2026", tag: "Preprint", text: "Whole-brain model of amyloid-β accumulation and cerebral hypoperfusion in Alzheimer's disease." },
