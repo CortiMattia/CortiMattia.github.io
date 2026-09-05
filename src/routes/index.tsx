@@ -35,11 +35,11 @@ function Index() {
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
               <span className="inline-flex items-center gap-2">
                 <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-                Available for collaborations · 2026
+                AVAILABLE FOR COLLABORATIONS · 2026
               </span>
             </p>
             <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.95] tracking-tight">
-              Mathematics<br />
+              Mattia Corti<br />
               <span className="gradient-text italic">of the brain.</span>
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
