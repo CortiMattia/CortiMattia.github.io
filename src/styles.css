@@ -211,3 +211,7 @@
 }
 .animate-float-up { animation: float-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
+
+@utility hero-navy {
+  background-color: rgb(17 16 50);
+}
