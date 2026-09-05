@@ -36,7 +36,7 @@ function Index() {
           src={brainArt.url}
           alt=""
           aria-hidden
-          className="pointer-events-none select-none absolute -right-24 -top-16 w-[42rem] max-w-none opacity-90 hidden md:block"
+          className="pointer-events-none select-none absolute -right-44 -top-10 w-[36rem] max-w-none opacity-90 hidden md:block"
         />
         <div className="relative grid md:grid-cols-[auto_1fr] gap-10 items-center p-10 md:p-16">
           <img
