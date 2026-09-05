@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import brainArt from "@/assets/brain.png.asset.json";
+import { InterestCards } from "@/components/InterestCards";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -11,13 +11,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const interests = [
-  { num: "01", title: "Brain modeling", desc: "Whole-brain PDE models for neurodegenerative diseases." },
-  { num: "02", title: "Polytopal DG", desc: "Structure-preserving discontinuous Galerkin schemes." },
-  { num: "03", title: "HPC", desc: "Scalable solvers on patient-specific geometries." },
-  { num: "04", title: "Cardiac CFD", desc: "Hemodynamics of the left atrium and atrial fibrillation." },
-];
 
 const news = [
   { date: "2026", tag: "Preprint", text: "Whole-brain model of amyloid-β accumulation and cerebral hypoperfusion in Alzheimer's disease." },
@@ -112,15 +105,7 @@ function Index() {
             See all research →
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {interests.map((i) => (
-            <article key={i.num} className="hover-card-modern rounded-2xl border border-border p-6 h-full">
-              <span className="font-mono text-xs text-muted-foreground">{i.num}</span>
-              <h3 className="font-serif text-2xl mt-4">{i.title}</h3>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{i.desc}</p>
-            </article>
-          ))}
-        </div>
+        <InterestCards />
       </section>
 
       {/* NEWS */}
