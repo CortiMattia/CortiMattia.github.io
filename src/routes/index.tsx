@@ -14,12 +14,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const news = [
-  { date: "2026", tag: "Preprint", text: "Whole-brain model of amyloid-β accumulation and cerebral hypoperfusion in Alzheimer's disease." },
-  { date: "2024", tag: "Published", text: "Structure-preserving polytopal DG methods — Journal of Scientific Computing." },
-  { date: "2024", tag: "Visit", text: "Visiting researcher at the Mathematical Institute, University of Oxford." },
-  { date: "2023", tag: "Visit", text: "Visiting researcher at the Faculty of Mathematics, University of Vienna." },
-];
 
 function Index() {
   return (
