@@ -157,7 +157,7 @@
     font-weight: 400;
   }
 
-  ::selection { background: oklch(0.78 0.16 75 / 0.3); color: var(--color-foreground); }
+  ::selection { background: oklch(0.86 0.19 75 / 0.35); color: var(--color-foreground); }
 }
 
 .font-mono { font-family: var(--font-mono); }
@@ -180,7 +180,7 @@
 }
 .hover-card-modern:hover {
   transform: translateY(-2px);
-  border-color: oklch(0.78 0.16 75 / 0.4);
+  border-color: oklch(0.86 0.19 75 / 0.5);
   background: oklch(1 0 0 / 0.05);
 }
 
