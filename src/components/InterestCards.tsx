@@ -15,47 +15,46 @@ export interface Interest {
 export const interests: Interest[] = [
   {
     num: "01",
-    title: "Brain modeling",
-    desc: "Whole-brain PDE models for neurodegenerative diseases.",
-    image: brainModeling.url,
+    title: "Polytopal DG",
+    desc: "High-order discontinuous Galerkin schemes on polygonal and polyhedral meshes.",
+    image: "images/PolytopalMesh.png",
     philosophy: [
-      "The brain is the most complex organ we know — and neurodegenerative diseases like Alzheimer's develop silently for decades before symptoms appear. I believe mathematics can give us a window into this hidden phase.",
-      "My approach is to describe the brain as a continuum: partial differential equations that couple the accumulation of toxic proteins (amyloid-β, tau), the mechanics of brain tissue, and cerebral blood flow, all on patient-specific geometries reconstructed from MRI.",
-      "The philosophy is simple: a model is only useful if it can say something about a real patient. That is why I work at the interface between numerical analysis, medical imaging, and clinical data — turning scans into simulations that may one day support early diagnosis.",
-    ],
+      "Complex geometries and adaptive computations naturally produce irregular meshes, non-matching interfaces and elements of very different sizes. Polytopal methods turn this apparent complication into flexibility: general polygonal and polyhedral cells can be used directly, without forcing the geometry into a rigid mesh structure.",
+      "My research develops high-order discontinuous Galerkin methods on polygonal and agglomerated meshes. Mesh agglomeration combines neighbouring cells into larger polytopes where fine resolution is unnecessary, helping to control small or poorly shaped elements while preserving detail where it matters.",
+      "The goal is to build methods that are both flexible and mathematically reliable: stable, accurate and efficient on general meshes, with rigorous error control to guide adaptive refinement. In this way, mesh design becomes part of the numerical method rather than a preprocessing obstacle."
+      ],
   },
   {
     num: "02",
-    title: "Polytopal DG",
-    desc: "Structure-preserving discontinuous Galerkin schemes.",
-    image: polydg.url,
+    title: "Structure-Preserving Methods",
+    desc: "Structure-preserving numerical discretizations for PDEs.",
+    image: "images/StructurePreserving.png",
     philosophy: [
-      "Real geometries — brains, hearts, arteries — are never cubes or spheres. Polytopal methods let us mesh them with general polygons and polyhedra, keeping the meshing step simple and the approximation accurate.",
-      "I develop high-order discontinuous Galerkin methods on polytopal grids that preserve the structure of the underlying physics: positivity of concentrations, energy dissipation, conservation laws. A numerical scheme should respect the mathematics it approximates.",
-      "For me, the beauty of this field is the dialogue between theory and practice: proving stability and convergence of a method, and then watching it run robustly on a complex anatomical mesh.",
-    ],
+      "Nonlinear diffusion systems often carry essential physical and biological structure: densities must remain non-negative, relevant quantities may be conserved, and entropy should decay over time. These are not cosmetic features of a model—they determine whether a simulation remains meaningful.",
+      "My work develops structure-preserving numerical methods for nonlinear and cross-diffusion PDEs, with a particular focus on boundedness-by-entropy techniques. By exploiting the entropy structure of a system, I design discretisations that reproduce its dissipation mechanism and help retain stability and physically admissible bounds at the discrete level.",
+      "This approach is particularly valuable for strongly coupled multi-species models, where classical maximum principles can fail. My aim is to combine rigorous entropy estimates with accurate computation, producing simulations that remain stable, bounded and faithful to the long-time behaviour of the underlying system."
+  ],
   },
   {
     num: "03",
-    title: "HPC",
-    desc: "Scalable solvers on patient-specific geometries.",
-    image: hpc.url,
+    title: "Brain modeling",
+    desc: "Whole-brain PDE models for neurodegenerative diseases.",
+    image: "images/BrainModeling.png",
     philosophy: [
-      "A whole-brain simulation with millions of degrees of freedom is useless if it takes weeks to run. High-performance computing is what turns mathematical models into practical tools.",
-      "I work on scalable solvers and preconditioners for the large, ill-conditioned linear systems arising from high-order discretizations on patient-specific geometries — the kind of systems where a naive solver simply fails.",
-      "The goal is clinical relevance: simulations that finish in hours, on geometries that come from real MRI data, so that modeling can actually enter the medical workflow.",
-    ],
+      "The brain is one of the most complex systems we know, and neurodegenerative diseases can progress silently for decades before symptoms emerge. I use mathematics to connect biological mechanisms, medical imaging and data in transparent, testable models of this hidden progression.",
+      "My work develops coupled nonlinear PDE models of protein aggregation and transport, tissue mechanics and cerebral blood flow on patient-specific brain geometries reconstructed from MRI. I pair these models with high-order, structure-preserving numerical methods designed to deliver stable, physically meaningful and computationally reliable simulations.",
+      "My goal is not mathematical complexity for its own sake. It is to build computational models that help interpret patient data, investigate mechanisms of disease progression and support the long-term development of better tools for research and clinical decision-making."    ],
   },
   {
     num: "04",
-    title: "Cardiac CFD",
-    desc: "Hemodynamics of the left atrium and atrial fibrillation.",
-    image: cardiac.url,
+    title: "Data-informed modelling",
+    desc: "Data-informed modelling, uncertainty quantification and parameters calibration",
+    image: "images/DataDriven.png",
     philosophy: [
-      "The human heart is a sophisticated machine, finely tuned by evolution — and blood flow is both its engine and a marker of its health. In the left atrium, disturbed flow is tightly linked to thrombus formation and atrial fibrillation.",
-      "I use computational fluid dynamics to study atrial hemodynamics: how flow patterns, vortices, and wall shear stresses change in healthy and pathological conditions, on geometries extracted from patient imaging.",
-      "The underlying belief is that quantitative, physics-based biomarkers from simulations can complement clinical imaging and help stratify risk — bringing numerical analysis into the cardiology room.",
-    ],
+      "A simulation is not automatically a prediction. In nonlinear biological models, measurements are incomplete, parameters are uncertain and modelling assumptions matter. Reliable computation must therefore account for uncertainty rather than hide it behind a single numerical outcome.",
+      "My work combines mechanistic PDE models with parameter calibration, sensitivity analysis and uncertainty quantification. I study how experimental, clinical or imaging data can inform unknown model parameters, and how uncertainty in those inputs propagates through nonlinear coupled dynamics.",
+      "The goal is to build data-informed computational models that remain transparent and interpretable: models that can test biological hypotheses, identify robust mechanisms and show where additional measurements would be most valuable."
+]
   },
 ];
 
