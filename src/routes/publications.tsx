@@ -46,11 +46,15 @@ function PublicationsPage() {
             </div>
             <ul className="space-y-3">
               {grouped[year].map((p) => (
-                <li key={p.title} className="hover-card-modern rounded-2xl border border-border p-6">
-                  <h3 className="font-serif text-2xl leading-snug">{p.title}</h3>
+                <li key={p.key} className="hover-card-modern rounded-2xl border border-border p-6">
+                  <span className="inline-block rounded-full border border-primary/40 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-primary">
+                    {typeLabel(p.type)}
+                  </span>
+                  <h3 className="font-serif text-2xl leading-snug mt-3">{p.title}</h3>
                   <p className="text-sm text-muted-foreground mt-2">{p.authors}</p>
                   <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
                     <span className="italic text-foreground/80">{p.venue}</span>
+
                     {p.links && (
                       <span className="flex gap-2">
                         {p.links.map((l) => (
