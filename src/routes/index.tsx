@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { InterestCards } from "@/components/InterestCards";
+import { NewsFeed } from "@/components/NewsFeed";
+import { newsItems } from "@/data/news";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,12 +14,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const news = [
-  { date: "2026", tag: "Preprint", text: "Whole-brain model of amyloid-β accumulation and cerebral hypoperfusion in Alzheimer's disease." },
-  { date: "2024", tag: "Published", text: "Structure-preserving polytopal DG methods — Journal of Scientific Computing." },
-  { date: "2024", tag: "Visit", text: "Visiting researcher at the Mathematical Institute, University of Oxford." },
-  { date: "2023", tag: "Visit", text: "Visiting researcher at the Faculty of Mathematics, University of Vienna." },
-];
 
 function Index() {
   return (
@@ -118,20 +114,15 @@ function Index() {
               A short stream of papers, talks and visits.
             </p>
           </div>
-          <ul className="lg:col-span-8 space-y-3">
-            {news.map((n, idx) => (
-              <li
-                key={idx}
-                className="hover-card-modern group rounded-2xl border border-border p-5 grid grid-cols-[5rem_5rem_1fr] sm:grid-cols-[6rem_7rem_1fr] gap-4 items-center"
-              >
-                <span className="font-mono text-sm text-muted-foreground">{n.date}</span>
-                <span className="text-xs font-medium uppercase tracking-wider rounded-full border border-primary/40 text-primary px-3 py-1 w-fit">
-                  {n.tag}
-                </span>
-                <span className="text-sm leading-relaxed">{n.text}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="lg:col-span-8">
+            <NewsFeed items={newsItems.slice(0, 4)} idPrefix="home" />
+            <Link
+              to="/news"
+              className="mt-6 inline-flex link-underline text-sm text-muted-foreground"
+            >
+              View news archive →
+            </Link>
+          </div>
         </div>
       </section>
 

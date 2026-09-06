@@ -1,8 +1,4 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import brainModeling from "@/assets/brain-modeling.jpg.asset.json";
-import polydg from "@/assets/polydg.jpg.asset.json";
-import hpc from "@/assets/hpc.jpg.asset.json";
-import cardiac from "@/assets/cardiac.jpg.asset.json";
 
 export interface Interest {
   num: string;

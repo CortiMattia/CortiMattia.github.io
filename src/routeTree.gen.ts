@@ -9,31 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CvRouteImport } from './routes/cv'
-import { Route as PublicationsRouteImport } from './routes/publications'
-import { Route as ResearchRouteImport } from './routes/research'
 import { Route as TeachingRouteImport } from './routes/teaching'
+import { Route as ResearchRouteImport } from './routes/research'
+import { Route as PublicationsRouteImport } from './routes/publications'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as CvRouteImport } from './routes/cv'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IndexRouteImport } from './routes/index'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CvRoute = CvRouteImport.update({
-  id: '/cv',
-  path: '/cv',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PublicationsRoute = PublicationsRouteImport.update({
-  id: '/publications',
-  path: '/publications',
+const TeachingRoute = TeachingRouteImport.update({
+  id: '/teaching',
+  path: '/teaching',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -41,9 +27,29 @@ const ResearchRoute = ResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeachingRoute = TeachingRouteImport.update({
-  id: '/teaching',
-  path: '/teaching',
+const PublicationsRoute = PublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CvRoute = CvRouteImport.update({
+  id: '/cv',
+  path: '/cv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/news': typeof NewsRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/news': typeof NewsRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/news': typeof NewsRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -75,14 +84,28 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/cv' | '/publications' | '/research' | '/teaching'
+    | '/'
+    | '/contact'
+    | '/cv'
+    | '/news'
+    | '/publications'
+    | '/research'
+    | '/teaching'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/cv' | '/publications' | '/research' | '/teaching'
+  to:
+    | '/'
+    | '/contact'
+    | '/cv'
+    | '/news'
+    | '/publications'
+    | '/research'
+    | '/teaching'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/cv'
+    | '/news'
     | '/publications'
     | '/research'
     | '/teaching'
@@ -92,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
+  NewsRoute: typeof NewsRoute
   PublicationsRoute: typeof PublicationsRoute
   ResearchRoute: typeof ResearchRoute
   TeachingRoute: typeof TeachingRoute
@@ -99,32 +123,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cv': {
-      id: '/cv'
-      path: '/cv'
-      fullPath: '/cv'
-      preLoaderRoute: typeof CvRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/publications': {
-      id: '/publications'
-      path: '/publications'
-      fullPath: '/publications'
-      preLoaderRoute: typeof PublicationsRouteImport
+    '/teaching': {
+      id: '/teaching'
+      path: '/teaching'
+      fullPath: '/teaching'
+      preLoaderRoute: typeof TeachingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -134,11 +137,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teaching': {
-      id: '/teaching'
-      path: '/teaching'
-      fullPath: '/teaching'
-      preLoaderRoute: typeof TeachingRouteImport
+    '/publications': {
+      id: '/publications'
+      path: '/publications'
+      fullPath: '/publications'
+      preLoaderRoute: typeof PublicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cv': {
+      id: '/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -148,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,
+  NewsRoute: NewsRoute,
   PublicationsRoute: PublicationsRoute,
   ResearchRoute: ResearchRoute,
   TeachingRoute: TeachingRoute,
