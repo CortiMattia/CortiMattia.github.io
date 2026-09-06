@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeachingRouteImport } from './routes/teaching'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PublicationsRouteImport } from './routes/publications'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const ResearchRoute = ResearchRouteImport.update({
 const PublicationsRoute = PublicationsRouteImport.update({
   id: '/publications',
   path: '/publications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CvRoute = CvRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/news': typeof NewsRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/news': typeof NewsRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/news': typeof NewsRoute
   '/publications': typeof PublicationsRoute
   '/research': typeof ResearchRoute
   '/teaching': typeof TeachingRoute
@@ -78,16 +87,25 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/cv'
+    | '/news'
     | '/publications'
     | '/research'
     | '/teaching'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/cv' | '/publications' | '/research' | '/teaching'
+  to:
+    | '/'
+    | '/contact'
+    | '/cv'
+    | '/news'
+    | '/publications'
+    | '/research'
+    | '/teaching'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/cv'
+    | '/news'
     | '/publications'
     | '/research'
     | '/teaching'
@@ -97,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
+  NewsRoute: typeof NewsRoute
   PublicationsRoute: typeof PublicationsRoute
   ResearchRoute: typeof ResearchRoute
   TeachingRoute: typeof TeachingRoute
@@ -123,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/publications'
       fullPath: '/publications'
       preLoaderRoute: typeof PublicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cv': {
@@ -153,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,
+  NewsRoute: NewsRoute,
   PublicationsRoute: PublicationsRoute,
   ResearchRoute: ResearchRoute,
   TeachingRoute: TeachingRoute,
