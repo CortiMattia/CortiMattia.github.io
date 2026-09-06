@@ -75,28 +75,28 @@
   --card-foreground: oklch(0.97 0.005 250);
   --popover: oklch(0.17 0.018 260);
   --popover-foreground: oklch(0.97 0.005 250);
-  --primary: oklch(0.78 0.16 75);
+  --primary: oklch(0.86 0.19 75);
   --primary-foreground: oklch(0.15 0.02 260);
   --secondary: oklch(0.22 0.02 260);
   --secondary-foreground: oklch(0.97 0.005 250);
   --muted: oklch(0.2 0.018 260);
   --muted-foreground: oklch(0.65 0.02 260);
-  --accent: oklch(0.7 0.18 200);
+  --accent: oklch(0.8 0.2 200);
   --accent-foreground: oklch(0.15 0.02 260);
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 90);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.16 75);
-  --chart-1: oklch(0.78 0.16 75);
-  --chart-2: oklch(0.7 0.18 200);
-  --chart-3: oklch(0.65 0.18 200);
-  --chart-4: oklch(0.75 0.15 145);
-  --chart-5: oklch(0.7 0.2 30);
+  --ring: oklch(0.86 0.19 75);
+  --chart-1: oklch(0.86 0.19 75);
+  --chart-2: oklch(0.8 0.2 200);
+  --chart-3: oklch(0.72 0.2 200);
+  --chart-4: oklch(0.78 0.16 145);
+  --chart-5: oklch(0.74 0.22 30);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.78 0.16 75) 0%, oklch(0.7 0.18 200) 100%);
-  --gradient-radial: radial-gradient(ellipse at top, oklch(0.78 0.16 75 / 0.18), transparent 60%);
-  --shadow-glow: 0 0 80px -20px oklch(0.78 0.16 75 / 0.4);
+  --gradient-hero: linear-gradient(135deg, oklch(0.86 0.19 75) 0%, oklch(0.8 0.2 200) 100%);
+  --gradient-radial: radial-gradient(ellipse at top, oklch(0.86 0.19 75 / 0.2), transparent 60%);
+  --shadow-glow: 0 0 80px -20px oklch(0.86 0.19 75 / 0.5);
   --noise-opacity: 0.04;
 }
 
@@ -146,8 +146,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.78 0.16 75 / 0.12), transparent),
-      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.7 0.18 200 / 0.10), transparent);
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.86 0.19 75 / 0.16), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.8 0.2 200 / 0.14), transparent);
     background-attachment: fixed;
   }
 
@@ -157,7 +157,7 @@
     font-weight: 400;
   }
 
-  ::selection { background: oklch(0.78 0.16 75 / 0.3); color: var(--color-foreground); }
+  ::selection { background: oklch(0.86 0.19 75 / 0.35); color: var(--color-foreground); }
 }
 
 .font-mono { font-family: var(--font-mono); }
@@ -180,7 +180,7 @@
 }
 .hover-card-modern:hover {
   transform: translateY(-2px);
-  border-color: oklch(0.78 0.16 75 / 0.4);
+  border-color: oklch(0.86 0.19 75 / 0.5);
   background: oklch(1 0 0 / 0.05);
 }
 
