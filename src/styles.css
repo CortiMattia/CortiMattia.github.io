@@ -75,28 +75,28 @@
   --card-foreground: oklch(0.97 0.005 250);
   --popover: oklch(0.17 0.018 260);
   --popover-foreground: oklch(0.97 0.005 250);
-  --primary: oklch(0.86 0.19 75);
+  --primary: oklch(0.76 0.2 55);
   --primary-foreground: oklch(0.15 0.02 260);
   --secondary: oklch(0.22 0.02 260);
   --secondary-foreground: oklch(0.97 0.005 250);
   --muted: oklch(0.2 0.018 260);
   --muted-foreground: oklch(0.65 0.02 260);
-  --accent: oklch(0.8 0.2 200);
+  --accent: oklch(0.66 0.2 258);
   --accent-foreground: oklch(0.15 0.02 260);
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 90);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.86 0.19 75);
-  --chart-1: oklch(0.86 0.19 75);
-  --chart-2: oklch(0.8 0.2 200);
-  --chart-3: oklch(0.72 0.2 200);
+  --ring: oklch(0.76 0.2 55);
+  --chart-1: oklch(0.76 0.2 55);
+  --chart-2: oklch(0.66 0.2 258);
+  --chart-3: oklch(0.6 0.2 262);
   --chart-4: oklch(0.78 0.16 145);
   --chart-5: oklch(0.74 0.22 30);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.86 0.19 75) 0%, oklch(0.8 0.2 200) 100%);
-  --gradient-radial: radial-gradient(ellipse at top, oklch(0.86 0.19 75 / 0.2), transparent 60%);
-  --shadow-glow: 0 0 80px -20px oklch(0.86 0.19 75 / 0.5);
+  --gradient-hero: linear-gradient(100deg, oklch(0.78 0.2 52) 0%, oklch(0.72 0.19 200) 45%, oklch(0.68 0.2 258) 100%);
+  --gradient-radial: radial-gradient(ellipse at top, oklch(0.76 0.2 55 / 0.2), transparent 60%);
+  --shadow-glow: 0 0 80px -20px oklch(0.76 0.2 55 / 0.5);
   --noise-opacity: 0.04;
 }
 
@@ -146,8 +146,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.86 0.19 75 / 0.16), transparent),
-      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.8 0.2 200 / 0.14), transparent);
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.76 0.2 55 / 0.16), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.66 0.2 258 / 0.14), transparent);
     background-attachment: fixed;
   }
 
@@ -157,7 +157,7 @@
     font-weight: 400;
   }
 
-  ::selection { background: oklch(0.86 0.19 75 / 0.35); color: var(--color-foreground); }
+  ::selection { background: oklch(0.76 0.2 55 / 0.35); color: var(--color-foreground); }
 }
 
 .font-mono { font-family: var(--font-mono); }
@@ -180,7 +180,7 @@
 }
 .hover-card-modern:hover {
   transform: translateY(-2px);
-  border-color: oklch(0.86 0.19 75 / 0.5);
+  border-color: oklch(0.76 0.2 55 / 0.5);
   background: oklch(1 0 0 / 0.05);
 }
 
@@ -218,18 +218,18 @@
 
 /* ── Research page: scientific spectral colour scale ───────────────── */
 .research-scope {
-  --sp-1: oklch(0.55 0.24 285); /* deep indigo */
-  --sp-2: oklch(0.68 0.19 240); /* blue */
-  --sp-3: oklch(0.78 0.16 200); /* cyan */
-  --sp-4: oklch(0.8 0.18 155);  /* green */
-  --sp-5: oklch(0.87 0.17 95);  /* yellow */
-  --sp-6: oklch(0.75 0.19 55);  /* orange */
-  --sp-7: oklch(0.66 0.24 15);  /* red/magenta */
-  --sp-gradient: linear-gradient(90deg, var(--sp-1), var(--sp-2), var(--sp-3), var(--sp-4), var(--sp-5), var(--sp-6), var(--sp-7));
+  --sp-1: oklch(0.78 0.2 52);   /* vivid orange */
+  --sp-2: oklch(0.76 0.2 55);
+  --sp-3: oklch(0.72 0.16 130);
+  --sp-4: oklch(0.7 0.16 210);
+  --sp-5: oklch(0.66 0.2 258);  /* vivid blue */
+  --sp-6: oklch(0.66 0.2 258);
+  --sp-7: oklch(0.62 0.2 265);
+  --sp-gradient: var(--gradient-hero);
 }
 
 .research-scope .spectral-eyebrow {
-  background: linear-gradient(90deg, var(--sp-3), var(--sp-4), var(--sp-5));
+  background: var(--gradient-hero);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -247,8 +247,8 @@
 }
 .research-scope .spectral-card:hover {
   transform: translateY(-3px);
-  border-color: oklch(0.78 0.16 200 / 0.55);
-  box-shadow: 0 24px 60px -32px oklch(0.68 0.19 240 / 0.8);
+  border-color: oklch(0.76 0.2 55 / 0.55);
+  box-shadow: 0 24px 60px -32px oklch(0.66 0.2 258 / 0.8);
 }
 
 .research-scope .spectral-link {
@@ -261,18 +261,18 @@
 
 .research-scope .spectral-button {
   color: oklch(0.97 0.005 250);
-  border: 1px solid oklch(0.78 0.16 200 / 0.35);
+  border: 1px solid oklch(0.66 0.2 258 / 0.35);
   background: oklch(1 0 0 / 0.04);
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 .research-scope .spectral-button:hover {
-  border-color: oklch(0.87 0.17 95 / 0.6);
+  border-color: oklch(0.76 0.2 55 / 0.6);
   background: oklch(1 0 0 / 0.08);
 }
 
 .research-scope .spectral-rule {
   border-left: 2px solid transparent;
-  border-image: linear-gradient(180deg, var(--sp-2), var(--sp-4), var(--sp-6)) 1;
+  border-image: linear-gradient(180deg, var(--sp-1), var(--sp-5)) 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
