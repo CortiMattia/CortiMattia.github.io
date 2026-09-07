@@ -55,7 +55,7 @@ function PublicationsPage() {
           </div>
 
           <h1 className="font-serif text-4xl md:text-5xl tracking-tight text-white">
-            Selected works
+            My works
           </h1>
 
           <p className="mt-4 text-base text-muted-foreground leading-relaxed">

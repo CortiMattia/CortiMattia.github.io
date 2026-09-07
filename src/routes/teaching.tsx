@@ -12,19 +12,41 @@ export const Route = createFileRoute("/teaching")({
 });
 
 const items = [
-  { period: "2024 — present", role: "Teaching assistant", course: "Numerical Analysis for Partial Differential Equations", where: "Politecnico di Milano" },
-  { period: "2023 — 2024", role: "Teaching assistant", course: "Numerical Methods for Differential Equations", where: "Politecnico di Milano" },
-  { period: "2022 — 2023", role: "Tutor", course: "Mathematical Analysis II", where: "Politecnico di Milano" },
+  { period: "2025 — 2026", role: "Teaching assistant", course: "Integration of ODE Based and Neural Network Models", who: "Intensive Passion-in-Action ENHANCE Course", where: "Politecnico di Milano & TU Delft", students: 25 },
+  { period: "2025 — 2026", role: "Teaching assistant", course: "Numerical Mathematics", who: "BSc in Mathematical Engineering", where: "Politecnico di Milano", students: 203 },
+  { period: "2024 — 2025", role: "Teaching assistant", course: "Numerical Mathematics", who: "BSc in Mathematical Engineering", where: "Politecnico di Milano", students: 200 },
+  { period: "2022 — 2023", role: "Teaching assistant", course: "Numerical Mathematics", who: "BSc in Mathematical Engineering", where: "Politecnico di Milano", students: 214 },
+  { period: "2021 — 2022", role: "Teaching assistant", course: "Numerical Mathematics", who: "BSc in Mathematical Engineering", where: "Politecnico di Milano", students: 222 },
+  { period: "2020 — 2021", role: "Tutor", course: "Fundamentals of Maths and Statistics", who: "BSc in Urban Planning", where: "Politecnico di Milano", students: 1 },
 ];
 
 function TeachingPage() {
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Teaching"
-        title="Courses & supervision"
-        lead="Selected teaching activities. I'm happy to discuss thesis projects in numerical analysis and scientific computing."
-      />
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-card p-8 md:p-14 mb-10 shadow-2xl">
+        {/* Immagine di sfondo posizionata sul lato destro */}
+        <img
+          src="/images/SfondoSito.png"
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover object-right opacity-80"
+        />
+
+        {/* Gradiente scuro di protezione per mantenere il testo sempre leggibile */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-card via-card/95 to-card/40" />
+
+        {/* Contenuto testuale */}
+        <div className="relative z-10 max-w-2xl">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-primary mb-4">
+            <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+            <span>Teaching</span>
+          </div>
+
+          <h1 className="font-serif text-4xl md:text-5xl tracking-tight text-white">
+            Teaching activities
+          </h1>
+        </div>
+      </section>
       <div className="space-y-3">
         {items.map((it) => (
           <article
@@ -34,7 +56,7 @@ function TeachingPage() {
             <span className="font-mono text-sm text-muted-foreground">{it.period}</span>
             <div>
               <p className="font-serif text-2xl leading-snug">{it.course}</p>
-              <p className="text-sm text-muted-foreground mt-2">{it.role} · {it.where}</p>
+              <p className="text-sm text-muted-foreground mt-2">{it.role} · {it.who} · {it.where} · Total of Students: {it.students}</p>
             </div>
           </article>
         ))}
