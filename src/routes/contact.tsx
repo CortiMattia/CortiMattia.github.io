@@ -21,11 +21,35 @@ const channels = [
 function ContactPage() {
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Contact"
-        title="Let's collaborate."
-        lead="I'm always happy to discuss numerical methods, brain modeling, and possible joint projects."
-      />
+
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-card p-8 md:p-14 mb-10 shadow-2xl">
+        {/* Immagine di sfondo posizionata sul lato destro */}
+        <img
+          src="/images/SfondoSito.png"
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover object-right opacity-80"
+        />
+
+        {/* Gradiente scuro di protezione per mantenere il testo sempre leggibile */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-card via-card/95 to-card/40" />
+
+        {/* Contenuto testuale */}
+        <div className="relative z-10 max-w-2xl">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-primary mb-4">
+            <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+            <span>Contact</span>
+          </div>
+
+          <h1 className="font-serif text-4xl md:text-5xl tracking-tight text-white">
+            Let's collaborate
+          </h1>
+
+          <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+            I'm always happy to discuss numerical methods, brain modeling, and possible joint projects.
+          </p>
+        </div>
+      </section>
 
       <div className="grid lg:grid-cols-[1fr_1fr] gap-5">
         <a
