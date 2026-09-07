@@ -226,49 +226,7 @@ function ResearchPage() {
                   ))}
                 </ul>
 
-                {"note" in a && a.note && ((a) => a)(a.note as ResearchNote) && (
-                  <div className="mt-8 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06]">
-                    <div
-                      className={`grid gap-6 p-6 ${
-                        a.note.image ? "md:grid-cols-[1fr_auto] md:items-center" : ""
-                      }`}
-                    >
-                      <div>
-                        <p className="font-serif text-2xl gradient-text">
-                          {a.note.title}
-                        </p>
-
-                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                          {a.note.body}
-                        </p>
-
-                        {a.note.href && a.note.linkLabel && (
-                          <a
-                            href={a.note.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-5 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary transition hover:text-primary/80"
-                          >
-                            {a.note.linkLabel}
-                            <span aria-hidden>↗</span>
-                          </a>
-                        )}
-                      </div>
-
-                      {a.note.image && (
-                        <div className="flex justify-center md:justify-end">
-                          <div className="flex h-36 w-full max-w-[260px] items-center justify-center rounded-xl border border-border/60 bg-background/30 p-4">
-                            <img
-                              src={a.note.image}
-                              alt={a.note.imageAlt ?? ""}
-                              className="h-full w-full object-contain"
-                            />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
+                {"note" in a && a.note && <AreaNote note={a.note as ResearchNote} />}
 
                 <div className="mt-9">
                   <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
