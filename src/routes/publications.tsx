@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import bibSource from "@/data/publications.bib?raw";
-import { toPublications, typeLabel, type Publication } from "@/lib/bibtex";
+import { toPublications, typeLabel, topicInfo, type Publication } from "@/lib/bibtex";
 
 export const Route = createFileRoute("/publications")({
   head: () => ({
@@ -102,6 +102,23 @@ function PublicationsPage() {
                     <p className="text-sm text-muted-foreground mt-2">{p.authors}</p>
                     <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
                       <span className="italic text-foreground/80">{p.venue}</span>
+
+                      <span className="flex flex-wrap gap-2">
+                        {p.topics.map((t) => {
+                          const info = topicInfo(t);
+                          if (!info) return null;
+                          return (
+                            <Link
+                              key={t}
+                              to="/research"
+                              hash={info.id}
+                              className="inline-flex items-center gap-1 rounded-full border border-accent/40 text-accent px-3 py-1 text-xs font-medium hover:bg-accent/10 transition"
+                            >
+                              {info.label}
+                            </Link>
+                          );
+                        })}
+                      </span>
 
                       {p.links && (
                         <span className="flex gap-2">
