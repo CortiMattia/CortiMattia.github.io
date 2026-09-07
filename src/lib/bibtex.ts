@@ -66,7 +66,16 @@ function readValue(src: string, i: number): [string, number] {
   return [src.slice(start, i), i];
 }
 
-export function parseBibtex(source: string): BibEntry[] {
+/** Remove whole-line BibTeX comments (lines whose first non-space char is %). */
+function stripComments(src: string): string {
+  return src
+    .split("\n")
+    .filter((line) => !/^\s*%/.test(line))
+    .join("\n");
+}
+
+export function parseBibtex(input: string): BibEntry[] {
+  const source = stripComments(input);
   const entries: BibEntry[] = [];
   let i = 0;
 
