@@ -78,6 +78,10 @@ const areas = [
     alt: "Computational brain surface coloured by a simulated concentration field",
     heading: "Multiscale models of brain disease and physiology",
     text: "I build mathematical models of brain processes across scales, from protein misfolding and propagation to tissue atrophy, cerebral perfusion, cerebrospinal-fluid dynamics and epileptic activity. These models are solved in realistic brain geometries to investigate disease mechanisms and possible dynamical transitions.",
+    note: {
+      title: "The BraiNum Project",
+      body: "My work on the topic is part of the BraiNum project. BraiNum aims at developing a mathematical model for the physiological and pathological function of the brain and central nervous system. It is developed at the Laboratory for Modeling and Scientific Computing (MOX) of the Department of Mathematics, Politecnico di Milano.",
+    },
     tags: [
       "Alzheimer's & Parkinson's disease",
       "Protein spreading",
