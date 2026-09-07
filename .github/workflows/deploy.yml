@@ -1,4 +1,4 @@
-name: Deploy Vite site to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
@@ -35,13 +35,31 @@ jobs:
       - name: Build website
         run: npm run build
 
+      # Temporaneamente utile: mostra le cartelle create dal build.
+      - name: Inspect build output
+        run: |
+          echo "Repository root:"
+          ls -la
+          echo ""
+          echo "dist:"
+          ls -la dist || true
+          echo ""
+          echo ".output:"
+          ls -la .output || true
+          echo ""
+          echo ".output/public:"
+          ls -la .output/public || true
+          echo ""
+          echo "HTML files:"
+          find . -maxdepth 4 -type f -name "*.html" -print
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload built website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
   deploy:
     needs: build
