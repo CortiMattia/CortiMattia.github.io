@@ -215,3 +215,66 @@
 @utility hero-navy {
   background-color: rgb(17 16 50);
 }
+
+/* ── Research page: scientific spectral colour scale ───────────────── */
+.research-scope {
+  --sp-1: oklch(0.55 0.24 285); /* deep indigo */
+  --sp-2: oklch(0.68 0.19 240); /* blue */
+  --sp-3: oklch(0.78 0.16 200); /* cyan */
+  --sp-4: oklch(0.8 0.18 155);  /* green */
+  --sp-5: oklch(0.87 0.17 95);  /* yellow */
+  --sp-6: oklch(0.75 0.19 55);  /* orange */
+  --sp-7: oklch(0.66 0.24 15);  /* red/magenta */
+  --sp-gradient: linear-gradient(90deg, var(--sp-1), var(--sp-2), var(--sp-3), var(--sp-4), var(--sp-5), var(--sp-6), var(--sp-7));
+}
+
+.research-scope .spectral-eyebrow {
+  background: linear-gradient(90deg, var(--sp-3), var(--sp-4), var(--sp-5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.research-scope .spectral-chip {
+  color: oklch(0.9 0.01 250);
+  border: 1px solid oklch(1 0 0 / 0.12);
+  background: oklch(1 0 0 / 0.03);
+}
+
+.research-scope .spectral-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.research-scope .spectral-card:hover {
+  transform: translateY(-3px);
+  border-color: oklch(0.78 0.16 200 / 0.55);
+  box-shadow: 0 24px 60px -32px oklch(0.68 0.19 240 / 0.8);
+}
+
+.research-scope .spectral-link {
+  color: var(--sp-3);
+  transition: color 0.2s ease;
+}
+.research-scope .spectral-link:hover {
+  color: var(--sp-5);
+}
+
+.research-scope .spectral-button {
+  color: oklch(0.97 0.005 250);
+  border: 1px solid oklch(0.78 0.16 200 / 0.35);
+  background: oklch(1 0 0 / 0.04);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.research-scope .spectral-button:hover {
+  border-color: oklch(0.87 0.17 95 / 0.6);
+  background: oklch(1 0 0 / 0.08);
+}
+
+.research-scope .spectral-rule {
+  border-left: 2px solid transparent;
+  border-image: linear-gradient(180deg, var(--sp-2), var(--sp-4), var(--sp-6)) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-scope .spectral-card:hover { transform: none; }
+}
