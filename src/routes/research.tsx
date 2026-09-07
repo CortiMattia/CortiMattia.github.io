@@ -125,6 +125,48 @@ function outputsFor(keyword: string) {
   return publications.filter((p) => p.topics.includes(keyword)).slice(0, 6);
 }
 
+type ResearchNote = {
+  title: string;
+  body: string;
+  image?: string;
+  imageAlt?: string;
+  href?: string;
+  linkLabel?: string;
+};
+
+function AreaNote({ note }: { note: ResearchNote }) {
+  return (
+    <div className="mt-8 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06]">
+      <div
+        className={`grid gap-6 p-6 ${note.image ? "md:grid-cols-[1fr_auto] md:items-center" : ""}`}
+      >
+        <div>
+          <p className="font-serif text-2xl gradient-text">{note.title}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{note.body}</p>
+          {note.href && note.linkLabel && (
+            <a
+              href={note.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary transition hover:text-primary/80"
+            >
+              {note.linkLabel}
+              <span aria-hidden>↗</span>
+            </a>
+          )}
+        </div>
+        {note.image && (
+          <div className="flex justify-center md:justify-end">
+            <div className="flex h-36 w-full max-w-[260px] items-center justify-center rounded-xl border border-border/60 bg-background/30 p-4">
+              <img src={note.image} alt={note.imageAlt ?? ""} className="h-full w-full object-contain" />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function ResearchPage() {
   return (
     <SiteLayout>
