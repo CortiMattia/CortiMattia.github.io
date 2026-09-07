@@ -12,6 +12,20 @@ export interface Publication {
   authors: string;
   venue: string;
   links: { label: string; href: string }[];
+  /** Research-area keywords declared in the .bib `keywords` field. */
+  topics: string[];
+}
+
+/** Research areas: bib keyword -> section id on /research. */
+export const RESEARCH_TOPICS: { id: string; keyword: string; label: string }[] = [
+  { id: "polytopal-dg", keyword: "polydg", label: "PolyDG" },
+  { id: "structure-preserving", keyword: "structure-preserving", label: "Structure-Preserving" },
+  { id: "brain-modelling", keyword: "neuroscience", label: "Neuroscience" },
+  { id: "data-informed", keyword: "data-informed", label: "Data-informed" },
+];
+
+export function topicInfo(keyword: string) {
+  return RESEARCH_TOPICS.find((t) => t.keyword === keyword);
 }
 
 /** Strip TeX braces, common escapes and collapse whitespace. */
