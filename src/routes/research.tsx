@@ -226,7 +226,7 @@ function ResearchPage() {
                   ))}
                 </ul>
 
-                {"note" in a && a.note && (
+                {"note" in a && a.note && ((a) => a)(a.note as ResearchNote) && (
                   <div className="mt-8 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06]">
                     <div
                       className={`grid gap-6 p-6 ${
