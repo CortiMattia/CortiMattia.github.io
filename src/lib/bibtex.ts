@@ -211,6 +211,10 @@ export function toPublications(source: string): Publication[] {
       authors: formatAuthors(e.fields["author"]),
       venue: buildVenue(e),
       links: buildLinks(e),
+      topics: (e.fields["keywords"] ?? "")
+        .split(",")
+        .map((k) => k.trim().toLowerCase())
+        .filter((k) => RESEARCH_TOPICS.some((t) => t.keyword === k)),
     }))
     .sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
 }
