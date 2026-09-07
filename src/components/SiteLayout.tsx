@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+const CV_PDF = "/Mattia_Corti_CV.pdf";
+
 const nav = [
   { to: "/", label: "Home", num: "01" },
   { to: "/research", label: "Research", num: "02" },
   { to: "/publications", label: "Publications", num: "03" },
   { to: "/teaching", label: "Teaching", num: "04" },
-  { to: "/cv", label: "CV", num: "05" },
   { to: "/contact", label: "Contact", num: "06" },
 ] as const;
 
@@ -38,6 +39,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 {n.label}
               </Link>
             ))}
+            <a
+              href={CV_PDF}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-full text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"
+            >
+              CV
+            </a>
           </nav>
           <a
             href="mailto:mattia.corti@polimi.it"
@@ -60,6 +69,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 {n.label}
               </Link>
             ))}
+            <a
+              href={CV_PDF}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-full text-sm text-muted-foreground whitespace-nowrap"
+            >
+              CV
+            </a>
           </div>
         </div>
       </header>
