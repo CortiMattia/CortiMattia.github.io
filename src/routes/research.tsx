@@ -225,6 +225,13 @@ function ResearchPage() {
                   ))}
                 </ul>
 
+                {"note" in a && a.note && (
+                  <div className="mt-8 rounded-2xl border border-accent/30 bg-accent/[0.06] p-6">
+                    <p className="font-serif text-2xl gradient-text">{a.note.title}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a.note.body}</p>
+                  </div>
+                )}
+
                 <div className="mt-9">
                   <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
                     Selected outputs
