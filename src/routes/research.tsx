@@ -79,7 +79,7 @@ const areas = [
     heading: "Multiscale models of brain disease and physiology",
     text: "I build mathematical models of brain processes across scales, from protein misfolding and propagation to tissue atrophy, cerebral perfusion, cerebrospinal-fluid dynamics and epileptic activity. These models are solved in realistic brain geometries to investigate disease mechanisms and possible dynamical transitions.",
     note: {
-      image: "images/brainum-logo.png",
+      image: "/images/brainum-logo.png",
       title: "The BraiNum Project",
       body: "My work on the topic is part of the BraiNum project. BraiNum aims at developing a mathematical model for the physiological and pathological function of the brain and central nervous system. It is developed at the Laboratory for Modeling and Scientific Computing (MOX) of the Department of Mathematics, Politecnico di Milano.",
     },
@@ -123,6 +123,48 @@ const heroTags = ["PolyDG", "Structure-Preserving", "Neuroscience", "Data-inform
 
 function outputsFor(keyword: string) {
   return publications.filter((p) => p.topics.includes(keyword)).slice(0, 6);
+}
+
+type ResearchNote = {
+  title: string;
+  body: string;
+  image?: string;
+  imageAlt?: string;
+  href?: string;
+  linkLabel?: string;
+};
+
+function AreaNote({ note }: { note: ResearchNote }) {
+  return (
+    <div className="mt-8 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06]">
+      <div
+        className={`grid gap-6 p-6 ${note.image ? "md:grid-cols-[1fr_auto] md:items-center" : ""}`}
+      >
+        <div>
+          <p className="font-serif text-2xl gradient-text">{note.title}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{note.body}</p>
+          {note.href && note.linkLabel && (
+            <a
+              href={note.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary transition hover:text-primary/80"
+            >
+              {note.linkLabel}
+              <span aria-hidden>↗</span>
+            </a>
+          )}
+        </div>
+        {note.image && (
+          <div className="flex justify-center md:justify-end">
+            <div className="flex h-36 w-full max-w-[260px] items-center justify-center rounded-xl border border-border/60 bg-background/30 p-4">
+              <img src={note.image} alt={note.imageAlt ?? ""} className="h-full w-full object-contain" />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 function ResearchPage() {
@@ -226,49 +268,7 @@ function ResearchPage() {
                   ))}
                 </ul>
 
-                {"note" in a && a.note && (
-                  <div className="mt-8 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06]">
-                    <div
-                      className={`grid gap-6 p-6 ${
-                        a.note.image ? "md:grid-cols-[1fr_auto] md:items-center" : ""
-                      }`}
-                    >
-                      <div>
-                        <p className="font-serif text-2xl gradient-text">
-                          {a.note.title}
-                        </p>
-
-                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                          {a.note.body}
-                        </p>
-
-                        {a.note.href && a.note.linkLabel && (
-                          <a
-                            href={a.note.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-5 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary transition hover:text-primary/80"
-                          >
-                            {a.note.linkLabel}
-                            <span aria-hidden>↗</span>
-                          </a>
-                        )}
-                      </div>
-
-                      {a.note.image && (
-                        <div className="flex justify-center md:justify-end">
-                          <div className="flex h-36 w-full max-w-[260px] items-center justify-center rounded-xl border border-border/60 bg-background/30 p-4">
-                            <img
-                              src={a.note.image}
-                              alt={a.note.imageAlt ?? ""}
-                              className="h-full w-full object-contain"
-                            />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
+                {"note" in a && a.note && <AreaNote note={a.note as ResearchNote} />}
 
                 <div className="mt-9">
                   <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
