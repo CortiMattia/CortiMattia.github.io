@@ -39,7 +39,7 @@ const areas = [
     title: "Polytopal DG",
     label: "Polytopal DG",
     short: "High-order discontinuous Galerkin schemes on polygonal and polyhedral meshes.",
-    image: "/images/research/polytopal-dg.jpg",
+    image: "/images/PolytopalMesh.png",
     alt: "Irregular polytopal mesh coloured with a spectral scalar field",
     heading: "Numerical methods designed for complex geometries",
     text: "I develop high-order discontinuous Galerkin discretizations on polygonal and polyhedral meshes. Polytopal meshes offer a flexible representation of heterogeneous domains and complex geometries reconstructed from imaging data, while retaining high-order accuracy and computational efficiency.",
@@ -57,15 +57,14 @@ const areas = [
     title: "Structure-Preserving Methods",
     label: "Structure-Preserving Methods",
     short: "Structure-preserving numerical discretizations for nonlinear PDEs.",
-    image: "/images/research/structure-preserving.jpg",
+    image: "/images/StructurePreserving.png",
     alt: "Folded ribbon surface coloured with a scientific scalar-field gradient",
     heading: "Reliable schemes for nonlinear propagation phenomena",
     text: "For nonlinear reaction–diffusion and conformational-conversion models, numerical accuracy alone is not enough. I design discretizations that retain qualitative properties of the continuous problem, including non-negativity, boundedness and stability, making simulations more physically meaningful and robust.",
     tags: [
-      "Positivity preservation",
-      "Entropy stability",
-      "Local DG",
-      "IMEX and BDF time integration",
+      "Positivity-preservation",
+      "Boundedness-by-Entropy",
+      "Local discontinuous Galerkin",
     ],
   },
   {
@@ -75,7 +74,7 @@ const areas = [
     title: "Brain Modelling",
     label: "Brain Modelling",
     short: "Whole-brain PDE models for neurodegenerative diseases.",
-    image: "/images/research/brain-modelling.jpg",
+    image: "/images/BrainModeling.png",
     alt: "Computational brain surface coloured by a simulated concentration field",
     heading: "Multiscale models of brain disease and physiology",
     text: "I build mathematical models of brain processes across scales, from protein misfolding and propagation to tissue atrophy, cerebral perfusion, cerebrospinal-fluid dynamics and epileptic activity. These models are solved in realistic brain geometries to investigate disease mechanisms and possible dynamical transitions.",
@@ -93,7 +92,7 @@ const areas = [
     title: "Data-informed Modelling",
     label: "Data-informed Modelling",
     short: "Data-informed modelling, uncertainty quantification and parameter calibration.",
-    image: "/images/research/data-informed.jpg",
+    image: "/images/DataDriven.png",
     alt: "Brain connectome flowing into an uncertainty surface",
     heading: "From imaging and clinical data to predictive models",
     text: "I combine mechanistic models with multimodal biological and clinical data to create patient-specific computational frameworks. This includes parameter calibration, uncertainty quantification, graph-based brain models and NeuralODE approaches for predicting heterogeneous disease trajectories.",
@@ -101,7 +100,7 @@ const areas = [
       "MRI and PET imaging",
       "Brain connectomes",
       "Uncertainty quantification",
-      "Parameter inference",
+      "Sensitivity Analysis",
       "Neural ODEs",
     ],
   },
@@ -109,9 +108,10 @@ const areas = [
 
 /** Replace with the real URLs when available. */
 const softwareLinks = [
-  { label: "GitHub", href: "https://github.com/lymph-library" },
-  { label: "Documentation", href: "#TODO-lymph-docs" },
-  { label: "Paper", href: "#TODO-lymph-paper" },
+  { label: "Code", href: "https://it.mathworks.com/matlabcentral/fileexchange/174340-lymph-discontinuous-polytopal-methods-for-multi-physics" },
+  { label: "Documentation", href: "https://lymph.bitbucket.io/" },
+  { label: "Paper Lymph 1.0", href: "https://dl.acm.org/doi/10.1145/3716310" },
+  { label: "Preprint Lymph 2.0", href: "https://doi.org/10.48550/arXiv.2606.24646" },
 ];
 
 const heroTags = ["PolyDG", "Structure-Preserving", "Neuroscience", "Data-informed"];
@@ -270,32 +270,52 @@ function ResearchPage() {
 
       {/* SOFTWARE */}
       <section className="mt-20 border-t border-border pt-14">
-        <div className="hover-card-modern rounded-2xl border border-border bg-card/60 p-8 md:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
-                Open-source software
-              </p>
-              <h2 className="mt-4 font-serif text-4xl gradient-text">lymph</h2>
-              <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-                A MATLAB library for the high-order discontinuous Galerkin discretization of coupled
-                multi-physics differential problems on polytopal grids.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {softwareLinks.map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary transition hover:bg-primary/10"
-                >
-                  {l.label} <span aria-hidden>↗</span>
-                </a>
-              ))}
-            </div>
+    <div className="hover-card-modern rounded-2xl border border-border bg-card/60 p-8 md:p-12">
+      <div className="grid gap-8 lg:grid-cols-[auto_1fr] lg:items-center">
+        {/* Logo lymph */}
+        <div className="flex justify-center lg:justify-start">
+          <div className="flex h-36 w-full max-w-[280px] items-center justify-center rounded-xl border border-border/70 bg-background/40 p-6">
+            <img
+              src="/images/lymph-logo.png"
+              alt="lymph logo"
+              className="max-h-20 w-auto max-w-full object-contain"
+            />
           </div>
         </div>
-      </section>
+
+        {/* Testo e link */}
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
+            Open-source software
+          </p>
+
+          <h2 className="mt-4 font-serif text-4xl gradient-text">
+            The lymph library
+          </h2>
+
+          <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+            A MATLAB library for the high-order discontinuous Galerkin
+            discretization of coupled multi-physics differential problems on
+            polytopal grids.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {softwareLinks.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary transition hover:bg-primary/10"
+              >
+                {l.label} <span aria-hidden>↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
       {/* PUBLICATIONS CTA */}
       <section className="mt-16 text-center">
