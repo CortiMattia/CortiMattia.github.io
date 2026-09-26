@@ -15,6 +15,17 @@ export interface NewsItem {
 // (keep reverse chronological). Homepage shows the first 4; /news shows all.
 export const newsItems: NewsItem[] = [
   {
+    year: "2026",
+    date: "10 September 2026",
+    category: "AWARD",
+    title: "AIMETA-GBMA award for the best PhD thesis 2026",
+    summary: "I was awarded the 2026 GBMA Award for the Best PhD Thesis in Theoretical and Applied Biomechanics, ex aequo, at the AIMETA 2026 Conference. The award recognised my PhD thesis, ‘Mathematical Models and Numerical Methods for Neurodegenerative Diseases’, for its originality and innovative contribution to computational methods for modelling complex biological systems. I also presented my research at the conference as part of the award.",
+    image: "/images/news/gbma-phd-prize.jpg",
+    venue: "27th Italian Association of Theoretical and Applied Mechanics (AIMETA) Congress",
+    linkLabel: "Learn more",
+    linkUrl: "https://www.aimeta.it/index.php/gruppi/biomeccanica",
+  },
+  {
       year: "2026",
       date: "23 July 2026",
       category: "Preprint",
