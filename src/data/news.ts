@@ -15,6 +15,17 @@ export interface NewsItem {
 // (keep reverse chronological). Homepage shows the first 4; /news shows all.
 export const newsItems: NewsItem[] = [
   {
+      year: "2026",
+      date: "29 September 2026",
+      category: "Preprint",
+      title: "A weighted polygonal discontinuous Galerkin method for hierarchically coupled reaction-diffusion systems with cubic interactions",
+      summary: "This preprint develops and analyses a numerical method for simulating reaction–diffusion systems involving multiple species and nonlinear interactions. The SWIP-PolyDG method handles heterogeneous and potentially anisotropic diffusion on general polygonal meshes. Under specified assumptions on the structure of the interactions, the study establishes local-in-time stability and an error estimate for the semi-discrete method. Numerical experiments confirm the predicted convergence and show that the method remains robust under heterogeneous diffusion.",
+      venue: "arXiv",
+      image: "/images/news/image-hoi.png",
+      linkLabel: "View preprint",
+      linkUrl: "https://arxiv.org/abs/2609.34625",
+  },
+  {
     year: "2026",
     date: "10 September 2026",
     category: "AWARD",
