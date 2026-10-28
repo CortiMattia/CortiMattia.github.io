@@ -15,6 +15,17 @@ export interface NewsItem {
 // (keep reverse chronological). Homepage shows the first 4; /news shows all.
 export const newsItems: NewsItem[] = [
   {
+    year: "2026",
+    date: "28 October 2026",
+    category: "Publication",
+    title: "On the Compact Discontinuous Galerkin method for polytopal meshes",
+    summary: "This work presents stability and convergence analyses for the hp-version of the Compact Discontinuous Galerkin method applied to elliptic problems on polytopal meshes. It also introduces fast and practical algorithms that enable CDG, LDG and BR2 methods to be implemented through a unified computational framework.",
+    venue: "SIAM Journal on Scientific Computing",
+    image: "/images/news/cdg.png",
+    linkLabel: "Read article",
+    linkUrl: "https://doi.org/10.1137/26M184057X",
+  },
+  {
       year: "2026",
       date: "29 September 2026",
       category: "Preprint",
