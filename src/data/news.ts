@@ -16,6 +16,17 @@ export interface NewsItem {
 export const newsItems: NewsItem[] = [
   {
     year: "2026",
+    date: "1 November 2026",
+    category: "Publication",
+    title: "High-fidelity and network-based spatio-temporal mathematical models of Alzheimer’s disease progression and their comparison with PET-SUVR imaging data",
+    summary: "This work develops and compares two data-informed approaches for modelling the spatio-temporal progression of amyloid-β and tau pathology in Alzheimer’s disease: high-fidelity models on three-dimensional patient-specific brain geometries and reduced network-based models on the brain connectome. A sensitivity analysis quantifies the influence of model parameters and compares predictive performance. Both modelling approaches are validated against PET-SUVR clinical imaging data for amyloid-β and tau.",
+    venue: "Brain Research Bulletin",
+    image: "/images/news/sensitivity.png",
+    linkLabel: "Read article",
+    linkUrl: "https://doi.org/10.1016/j.brainresbull.2026.112182",
+  },
+  {
+    year: "2026",
     date: "28 October 2026",
     category: "Publication",
     title: "On the Compact Discontinuous Galerkin method for polytopal meshes",
